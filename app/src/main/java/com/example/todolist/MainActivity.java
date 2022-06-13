@@ -62,14 +62,14 @@ public class MainActivity extends AppCompatActivity {
         params.height = getScreenHeight() - getScreenHeight()/4;
         window.setAttributes(params);
 
-        Button bt_cancel = findViewById(R.id.bt_cancel);
+        Button bt_cancel = dialog.findViewById(R.id.bt_cancel);
 
-        /*bt_cancel.setOnClickListener(new View.OnClickListener() {
+        bt_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
-        });*/
+        });
 
         dialog.show();
     }
