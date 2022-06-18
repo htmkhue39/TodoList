@@ -22,14 +22,14 @@
             android:background="@drawable/form_button"
             android:text="+ Form task"
             android:textAllCaps="false"
-            android:textColor="#FA71CD" />
+            android:textColor="#ecaea3" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Todo List"
             android:layout_gravity="center"
-            android:layout_weight="50"
+            android:layout_weight="20"
             android:textAlignment="center"
             android:textSize="20dp"/>
 

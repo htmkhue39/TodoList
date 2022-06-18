@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Formtask"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,26 +17,29 @@
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#d5ebf6"
+            android:background="#f0c9c2"
             android:minHeight="?attr/actionBarSize"
             app:title="Form Task">
+
             <Button
+                android:id="@+id/bt_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/bt_cancel"
-                android:text="Cancel"
-                android:textColor="@color/black"
-                android:textAllCaps="false"
                 android:layout_marginStart="10dp"
-            />
+                android:layout_weight="1"
+                android:text="Cancel"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:background="@drawable/cancel_button" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:text="Form task"
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                android:layout_marginEnd="80dp"/>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -66,7 +70,17 @@
         android:id="@+id/task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/task_no_more_use" />
+        android:layout_below="@+id/task_no_more_use"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#fcf5e3"
+        android:drawablePadding="20dp"
+        android:hint="Water the plant"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="#cccccc" />
 
     <LinearLayout
         android:id="@+id/date_layout"
@@ -118,7 +132,17 @@
         android:id="@+id/tx_memo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/memo" />
+        android:layout_below="@id/memo"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#fcf5e3"
+        android:drawablePadding="20dp"
+        android:hint="Use 50ml of water"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="#cccccc" />
 
     <LinearLayout
         android:id="@+id/pin"
@@ -153,12 +177,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/pin"
-        android:text="+ Add task"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/normal_button"
-
-
-    />
+        android:textColor="@color/white"
+        android:text="+ Add task" />
 </RelativeLayout>
