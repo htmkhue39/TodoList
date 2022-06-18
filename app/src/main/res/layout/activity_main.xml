@@ -50,8 +50,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/edit_text"
         android:hint="Enter your todo work"
-        android:padding="12dp"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:layout_below="@+id/task_no_more_use"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#fcf5e3"
+        android:drawablePadding="20dp"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="#cccccc"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
