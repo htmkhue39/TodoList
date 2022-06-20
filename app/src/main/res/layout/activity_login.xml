@@ -20,7 +20,7 @@
         android:gravity="center"/>
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/emailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/signin"
@@ -31,16 +31,17 @@
         android:background="#30ffffff"
         android:drawableStart="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
-        android:hint="Username"
+        android:hint="Email"
         android:padding="20dp"
         android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColorHint="@color/white"
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/password"
-        android:layout_below="@id/username"
+        android:layout_below="@id/emailAddress"
         android:background="#30ffffff"
         android:hint="Password"
         android:textColorHint="@color/white"
@@ -60,7 +61,7 @@
         android:backgroundTint="@color/design_default_color_secondary"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
-        />
+        android:onClick="signInWithEmailAndPassword" />
 
     <TextView
         android:id="@+id/forgotpass"

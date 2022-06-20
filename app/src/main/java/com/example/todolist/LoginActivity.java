@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -58,8 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if (currentUser != null) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
+            openMainActivityAndFinish();
         }
     }
 
@@ -77,9 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            openMainActivityAndFinish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -109,5 +108,34 @@ public class LoginActivity extends AppCompatActivity {
 
     public void openRegister(View view) {
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+    }
+
+    public void signInWithEmailAndPassword(View view) {
+        EditText emailEditText = findViewById(R.id.emailAddress);
+        EditText passwordEditText = findViewById(R.id.password);
+
+        String email = emailEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "signInWithEmail:success");
+
+                        openMainActivityAndFinish();
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "signInWithEmail:failure", task.getException());
+                        Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
+    private void openMainActivityAndFinish() {
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        finish();
     }
 }
