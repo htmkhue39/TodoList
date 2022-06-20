@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity"
+    tools:context=".LoginActivity"
     android:padding="20dp">
 
     <TextView
@@ -75,6 +75,17 @@
         android:text="Forgot password?"
         android:textColor="@color/white" />
 
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registerButton"
+        android:layout_below="@id/forgotpass"
+        android:text="REGISTER"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:onClick="openRegister"/>
+
     <TextView
         android:id="@+id/others"
         android:layout_width="wrap_content"
@@ -97,7 +108,8 @@
             android:layout_height="48dp"
             android:layout_margin="20dp"
             android:src="@drawable/google"
-            android:id="@+id/googleButton"/>
+            android:id="@+id/googleButton"
+            android:onClick="googleSignIn" />
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"

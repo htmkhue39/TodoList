@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -48,11 +49,6 @@ public class LoginActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-
-        googleButton = findViewById(R.id.googleButton);
-        googleButton.setOnClickListener(v -> {
-            googleSignIn();
-        });
     }
 
     @Override
@@ -67,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void googleSignIn() {
+    public void googleSignIn(View view) {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -109,5 +105,9 @@ public class LoginActivity extends AppCompatActivity {
                 Log.w(TAG, "Google sign in failed", e);
             }
         }
+    }
+
+    public void openRegister(View view) {
+        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
     }
 }
