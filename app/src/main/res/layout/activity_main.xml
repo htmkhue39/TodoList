@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="20dp">
 
         <android.widget.Button
             android:id="@+id/bt_form"
@@ -34,7 +34,8 @@
             android:layout_weight="20"
             android:textAlignment="center"
             android:textSize="20dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
 
         <ImageButton
             android:id="@+id/bt_menu"
@@ -59,7 +60,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#fcf5e3"
+        android:background="#f0f0f0"
         android:drawablePadding="20dp"
         android:padding="20dp"
         android:textColor="@color/black"
