@@ -14,7 +14,8 @@
         android:id="@+id/ic_back"
         android:src="@drawable/ic_back"
         android:background="@color/white"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:onClick="returnToLogin"/>
 
     <TextView
         android:layout_width="match_parent"

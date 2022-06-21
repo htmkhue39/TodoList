@@ -1,12 +1,6 @@
 package com.example.todolist;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
-
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -17,49 +11,57 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
-    EditText editText;
+    EditText todoTask;
     Button bt_form, bt_add;
     ImageButton bt_menu;
+
+    ArrayList<TodoTask> todoTasks;
+    TodoTaskAdapter todoTaskAdapter;
+    RecyclerView todoTaskRecyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editText = findViewById(R.id.edit_text);
+
+        todoTask = findViewById(R.id.todoTask);
         bt_add = findViewById(R.id.bt_add);
         bt_form = findViewById(R.id.bt_form);
         bt_menu = findViewById(R.id.bt_menu);
 
-        bt_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //get string from edit text
+        todoTasks = new ArrayList<>();
+        todoTaskAdapter = new TodoTaskAdapter(this, todoTasks);
 
-            }
+        todoTaskRecyclerView = findViewById(R.id.todoTaskRecyclerView);
+        todoTaskRecyclerView.setAdapter(todoTaskAdapter);
+        todoTaskRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        bt_add.setOnClickListener(v -> {
+            String task = todoTask.getText().toString();
+
+            todoTasks.add(0, new TodoTask(task, "Do something"));
+            todoTaskAdapter.notifyItemInserted(0);
         });
 
-        bt_form.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Form task view
-                showFormDialog();
-            }
-
-
+        bt_form.setOnClickListener(v -> {
+            //Form task view
+            showFormDialog();
         });
 
 
-        bt_menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                buttonPopupMenu_onClick(view);
-            }
-        });
+        bt_menu.setOnClickListener(view -> buttonPopupMenu_onClick(view));
 
     }
 
@@ -96,16 +98,22 @@ public class MainActivity extends AppCompatActivity {
         if(window == null) return;
         WindowManager.LayoutParams params = window.getAttributes();
         params.width = getScreenWidth() - getScreenWidth()/15;
-        params.height = getScreenHeight() - getScreenHeight()/4;
+//        params.height = getScreenHeight() - getScreenHeight()/4;
         window.setAttributes(params);
 
         Button bt_cancel = dialog.findViewById(R.id.bt_cancel);
+        bt_cancel.setOnClickListener(v -> dialog.dismiss());
 
-        bt_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
+        Button addTaskButton = dialog.findViewById(R.id.addTaskButton);
+        addTaskButton.setOnClickListener(v -> {
+            EditText taskNameEditText = dialog.findViewById(R.id.taskNameEditText);
+            EditText memoEditText = dialog.findViewById(R.id.memoEditText);
+
+            String taskName = taskNameEditText.getText().toString();
+            String memo = memoEditText.getText().toString();
+
+//            addNewTask()
+            // TODO: 22/06/2022 : addNewTask()
         });
 
         dialog.show();

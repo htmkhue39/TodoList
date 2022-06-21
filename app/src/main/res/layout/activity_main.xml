@@ -52,7 +52,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit_text"
+        android:id="@+id/todoTask"
         android:hint="Enter your todo work"
         android:layout_margin="10dp"
         android:layout_below="@+id/task_no_more_use"
@@ -82,9 +82,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recycler_view"
+        android:id="@+id/todoTaskRecyclerView"
         android:layout_marginTop="8dp"
-        tools:listitem="@layout/row"
+        tools:listitem="@layout/item_view"
         android:padding="20dp"/>
 
 </LinearLayout>

@@ -47,4 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    public void returnToLogin(View view) {
+        finish();
+    }
 }

@@ -2,17 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Formtask"
     android:orientation="vertical"
     android:background="@color/white"
-    >
+    tools:context=".MainActivity">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/app_bar_layout"
-        >
+        android:id="@+id/app_bar_layout">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/app_bar"
@@ -31,7 +30,7 @@
                 android:text="Cancel"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:background="@drawable/cancel_button" />
+                android:background="@drawable/cancel_button"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -68,7 +67,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/task"
+        android:id="@+id/taskNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/task_no_more_use"
@@ -87,10 +86,9 @@
         android:id="@+id/date_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/task"
+        android:layout_below="@id/taskNameEditText"
         android:orientation="horizontal"
-        android:layout_marginStart="20dp"
-        >
+        android:layout_marginStart="20dp">
 
         <TextView
             android:id="@+id/tv_date"
@@ -131,7 +129,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/tx_memo"
+        android:id="@+id/memoEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/memo"
@@ -150,7 +148,7 @@
         android:id="@+id/pin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tx_memo"
+        android:layout_below="@id/memoEditText"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:orientation="horizontal">
@@ -177,12 +175,15 @@
     </LinearLayout>
 
     <android.widget.Button
+        android:id="@+id/addTaskButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/pin"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/normal_button"
         android:text="+ Add task"
         android:textColor="@color/white" />
